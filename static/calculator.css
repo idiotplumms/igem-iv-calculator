@@ -1,0 +1,502 @@
+/* =========================
+   CALCULATOR HEADER
+   ========================= */
+
+header {
+    background: var(--navy);
+
+    color: white;
+
+    padding: 18px 16px;
+
+    border-bottom: 7px solid var(--yellow);
+}
+
+header h1 {
+    margin: 0;
+
+    font-size: 27px;
+}
+
+header p {
+    margin: 6px 0 0;
+
+    color: #dbe3ea;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   MAIN
+   ========================= */
+
+main {
+    max-width: 760px;
+
+    margin: auto;
+
+    padding: 14px;
+}
+
+
+/* =========================
+   CARDS
+   ========================= */
+
+.card {
+    background: white;
+
+    border: 2px solid #b8d9f5;
+
+    border-radius: 14px;
+
+    padding: 15px;
+
+    margin-bottom: 12px;
+
+    box-shadow:
+        0 2px 7px #0001;
+}
+
+
+/* =========================
+   HEADINGS
+   ========================= */
+
+h2 {
+    margin: 0 0 12px;
+
+    color: #064d8c;
+
+    font-size: 20px;
+}
+
+.step {
+    display: inline-grid;
+
+    place-items: center;
+
+    width: 31px;
+    height: 31px;
+
+    border-radius: 50%;
+
+    background: var(--blue);
+
+    color: white;
+
+    margin-right: 7px;
+}
+
+
+/* =========================
+   INPUTS
+   ========================= */
+
+label {
+    font-weight: 700;
+
+    display: block;
+
+    margin: 11px 0 6px;
+}
+
+.hint {
+    font-size: 13px;
+
+    color: #52616e;
+
+    margin-top: 5px;
+}
+
+.pipe-intro {
+    margin-bottom: 8px;
+}
+
+select,
+input {
+    width: 100%;
+
+    font-size: 21px;
+
+    padding: 13px;
+
+    border: 2px solid #8ebfe7;
+
+    border-radius: 10px;
+
+    background: white;
+}
+
+
+/* =========================
+   PIPE INPUTS
+   ========================= */
+
+.pipe {
+    display: grid;
+
+    grid-template-columns: 1fr 120px;
+
+    gap: 10px;
+
+    align-items: center;
+
+    border-top: 1px solid #e5ebf0;
+
+    padding: 9px 0;
+}
+
+.pipe:first-of-type {
+    border-top: 0;
+}
+
+.pipe b {
+    font-size: 18px;
+}
+
+.unit {
+    position: relative;
+}
+
+.unit::after {
+    content: "m";
+
+    position: absolute;
+
+    right: 15px;
+
+    top: 15px;
+
+    font-weight: bold;
+
+    color: #596a78;
+}
+
+.unit input {
+    padding-right: 38px;
+}
+
+
+/* =========================
+   CALCULATE BUTTON
+   ========================= */
+
+button {
+    width: 100%;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: var(--yellow);
+
+    padding: 16px;
+
+    font-size: 22px;
+
+    font-weight: 900;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+}
+
+.calculate-button:active {
+    transform: scale(0.98);
+}
+
+
+/* =========================
+   RESULTS
+   ========================= */
+
+.result {
+    display: none;
+
+    background: #eaf8ef;
+
+    border: 3px solid #159447;
+
+    border-radius: 14px;
+
+    padding: 16px;
+
+    text-align: center;
+}
+
+.result .big {
+    font-size: 36px;
+
+    font-weight: 900;
+
+    color: #087235;
+
+    margin: 5px 0;
+}
+
+.drop {
+    font-size: 24px;
+
+    font-weight: 900;
+
+    background: white;
+
+    border-radius: 9px;
+
+    padding: 10px;
+
+    margin: 10px 0;
+}
+
+
+/* =========================
+   BREAKDOWN
+   ========================= */
+
+.breakdown {
+    text-align: left;
+
+    background: white;
+
+    border-radius: 9px;
+
+    padding: 11px;
+
+    margin-top: 10px;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================
+   WARNING
+   ========================= */
+
+.warn {
+    display: none;
+
+    background: #fff2f2;
+
+    border: 2px solid #cf2027;
+
+    border-radius: 12px;
+
+    padding: 13px;
+
+    color: #9b1117;
+
+    font-weight: 700;
+
+    margin-top: 10px;
+}
+
+
+/* =========================
+   PURGE
+   ========================= */
+
+.purge {
+    background: #fff8cc;
+
+    border: 2px solid #e3bd00;
+
+    border-radius: 10px;
+
+    padding: 10px;
+
+    margin-top: 10px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   NOTE
+   ========================= */
+
+.note {
+    font-size: 12px;
+
+    color: #5b6570;
+
+    line-height: 1.4;
+
+    padding: 4px 3px 18px;
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+.reset {
+    margin-top: 10px;
+
+    background: #e7edf2;
+
+    font-size: 16px;
+
+    padding: 11px;
+}
+
+
+/* =========================
+   DESKTOP
+   ========================= */
+
+@media (min-width: 650px) {
+
+    header h1 {
+        font-size: 32px;
+    }
+
+    .pipes {
+        display: grid;
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 0 20px;
+    }
+
+    .pipe:nth-child(2) {
+        border-top: 0;
+    }
+}
+
+
+/* =========================
+   PHONE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    header {
+        padding-top: 18px;
+    }
+
+    main {
+        padding: 10px;
+    }
+
+    .card {
+        padding: 13px;
+    }
+
+    select,
+    input {
+        font-size: 20px;
+    }
+
+    .pipe {
+        grid-template-columns: 1fr 110px;
+    }
+
+    .result .big {
+        font-size: 32px;
+    }
+}
+
+
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+}
+
+/* Main navigation button */
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    background: #121a23;
+    color: #ffffff;
+
+    border: 1px solid #121a23;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+
+/* Logout button */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 16px;
+}
+
+/* Go to Slides - keep your existing yellow theme */
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    background: #f2c94c;
+    color: #121a23;
+
+    border: 1px solid #f2c94c;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+
+.nav-button:hover {
+    background: #e0b83f;
+    border-color: #e0b83f;
+}
+
+/* Log out - red */
+.logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    background: #b42318;
+    color: #ffffff;
+
+    border: 1px solid #b42318;
+    border-radius: 8px;
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+
+    box-sizing: border-box;
+
+    transition: background 0.2s ease,
+                transform 0.1s ease;
+}
+
+.logout-button:hover {
+    background: #8f1d14;
+    border-color: #8f1d14;
+}
+
+.nav-button:active,
+.logout-button:active {
+    transform: translateY(1px);
+}
+
