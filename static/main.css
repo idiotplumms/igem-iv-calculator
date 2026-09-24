@@ -779,18 +779,14 @@ body {
 
 }
 
-/* =========================
-   TOP WHITE SAFE-AREA STRIPE
-   ========================= */
 
-body::before {
-    content: "";
-    display: block;
+.slides-top-space {
     height: calc(30px + env(safe-area-inset-top));
     background: #121a23;
     border-bottom: 4px solid var(--yellow);
     flex-shrink: 0;
 }
+
 
 
 
