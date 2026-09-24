@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+
+<meta
+    name="viewport"
+    content="width=device-width,
+             initial-scale=1.0,
+             viewport-fit=cover">
+
+
+<title>
+    Engineer Briefing
+</title>
+
+
+<link
+    rel="stylesheet"
+    href="{{ url_for('static', filename='main.css') }}">
+
+
+<link
+    rel="manifest"
+    href="{{ url_for('static', filename='manifest.json') }}">
+
+
+<meta
+    name="theme-color"
+    content="#121a23">
+
+
+<meta
+    name="apple-mobile-web-app-capable"
+    content="yes">
+
+
+<meta
+    name="apple-mobile-web-app-status-bar-style"
+    content="black-translucent">
+
+
+<meta
+    name="apple-mobile-web-app-title"
+    content="IV Calculator">
+
+
+<link
+    rel="apple-touch-icon"
+    href="{{ url_for('static', filename='icon-180.png') }}">
+
+
+</head>
+
+<body>
+
+
+<div class="pdf-page">
+
+
+    <div class="pdf-page-header">
+
+
+        <a
+            href="{{ url_for('home') }}"
+            class="pdf-back-button">
+
+            ← Back to Briefing
+
+        </a>
+
+
+        <h1>
+            IGEM Engineer Briefing
+        </h1>
+
+
+    </div>
+
+
+    <div class="pdf-page-content">
+
+
+        <iframe
+            class="pdf-full-viewer"
+            src="{{ url_for('briefing_pdf') }}"
+            title="IGEM Engineer Briefing PDF">
+        </iframe>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            function () {
+
+                navigator.serviceWorker.register(
+                    "{{ url_for('service_worker') }}"
+                );
+
+            }
+        );
+
+    }
+
+</script>
+
+</body>
+
+</html>
