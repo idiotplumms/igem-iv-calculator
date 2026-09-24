@@ -74,10 +74,18 @@
                     IGEM Engineer Briefing
                 </h2>
 
+                <a
+                    href="{{ url_for('briefing_pdf') }}"
+                    class="open-pdf">
+
+                    Open PDF
+
+                </a>
+
             </div>
 
 
-            <!-- SMALL PDF PREVIEW -->
+            <!-- PDF PREVIEW -->
 
             <div class="pdf-preview">
 
@@ -85,21 +93,6 @@
                     src="{{ url_for('briefing_pdf') }}"
                     title="IGEM Engineer Briefing PDF Preview">
                 </iframe>
-
-            </div>
-
-
-            <!-- OPEN FULL PDF -->
-
-            <div class="pdf-open-area">
-
-                <a
-                    href="{{ url_for('pdf_viewer') }}"
-                    class="open-pdf">
-
-                    Open PDF
-
-                </a>
 
             </div>
 
@@ -169,4 +162,3 @@
 </body>
 
 </html>
-
