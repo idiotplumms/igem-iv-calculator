@@ -1,4 +1,4 @@
-const CACHE_NAME = "igem-iv-calculator-v6";
+const CACHE_NAME = "igem-iv-calculator-v7";
 
 const OFFLINE_ASSETS = [
 "/home",
