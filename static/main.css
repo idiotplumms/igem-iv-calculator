@@ -495,3 +495,138 @@ body {
     text-align: center;
 }
 
+/* =========================
+   FULL PDF VIEWER PAGE
+   ========================= */
+
+.pdf-page {
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--bg);
+}
+
+.pdf-page-header {
+    background: var(--navy);
+    color: white;
+
+    padding: 12px 14px;
+
+    border-bottom: 4px solid var(--yellow);
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    flex-shrink: 0;
+}
+
+.pdf-page-header h1 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pdf-back-button {
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    text-decoration: none;
+
+    font-weight: 900;
+    font-size: 15px;
+
+    padding: 10px 13px;
+
+    border-radius: 9px;
+
+    white-space: nowrap;
+
+    box-shadow: 0 2px 5px #0003;
+}
+
+.pdf-back-button:hover {
+    background: #e0b83f;
+}
+
+.pdf-back-button:active {
+    transform: translateY(1px);
+}
+
+.pdf-page-content {
+    flex: 1;
+
+    padding: 10px;
+
+    display: flex;
+
+    min-height: 0;
+}
+
+.pdf-full-viewer {
+    width: 100%;
+    height: calc(100vh - 86px);
+
+    min-height: 500px;
+
+    border: none;
+
+    display: block;
+
+    background: #ddd;
+
+    border-radius: 8px;
+}
+
+
+/* =========================
+   PDF VIEWER MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .pdf-page-header {
+        padding: 10px;
+        gap: 10px;
+    }
+
+    .pdf-page-header h1 {
+        font-size: 17px;
+    }
+
+    .pdf-back-button {
+        padding: 10px 11px;
+        font-size: 14px;
+    }
+
+    .pdf-page-content {
+        padding: 6px;
+    }
+
+    .pdf-full-viewer {
+        height: calc(100vh - 72px);
+        min-height: 400px;
+
+        border-radius: 6px;
+    }
+}
+
+
+/* =========================
+   PDF VIEWER LANDSCAPE
+   ========================= */
+
+@media (orientation: landscape) and (max-width: 900px) {
+
+    .pdf-full-viewer {
+        height: calc(100vh - 70px);
+    }
+}
