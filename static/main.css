@@ -787,22 +787,42 @@ body {
     flex-shrink: 0;
 }
 
+
 /* =========================
    SHOW PASSWORD BUTTON
    ========================= */
 
 .show-password-button {
-    display: block;
-    margin: -10px 0 20px auto;
-    padding: 5px 0;
-    background: none;
-    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: -12px 0 16px auto;
+    padding: 6px 10px;
+    background: #f1f4f7;
+    border: 1px solid #d5dce3;
+    border-radius: 7px;
     color: #2c6bed;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 600;
     cursor: pointer;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.1s ease;
+}
+
+.show-password-button::before {
+    content: "◉";
+    font-size: 12px;
+}
+
+.show-password-button:hover {
+    background: #e8edf2;
+    border-color: #c4ccd5;
 }
 
 .show-password-button:active {
     transform: translateY(1px);
 }
+
