@@ -787,7 +787,7 @@ body::before {
     content: "";
     display: block;
     height: calc(30px + env(safe-area-inset-top));
-    background: white;
+    background: #121a23;
     flex-shrink: 0;
 }
 
