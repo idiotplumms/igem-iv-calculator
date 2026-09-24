@@ -778,3 +778,24 @@ body {
     }
 
 }
+
+/* =========================
+   TOP SAFE-AREA STRIPE
+   ========================= */
+
+body::before {
+    content: "";
+    display: block;
+    height: env(safe-area-inset-top);
+    min-height: 20px;
+    background: white;
+}
+
+@media (max-width: 600px) {
+
+    body::before {
+        min-height: 24px;
+    }
+
+}
+
