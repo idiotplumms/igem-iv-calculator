@@ -742,3 +742,39 @@ body {
         min-height: 50px; 
         font-size: 17px; }
 }
+
+/* =========================
+   PDF PAGE BOTTOM BACK BUTTON
+   ========================= */
+
+.pdf-page-back {
+
+    padding: 10px 12px 14px;
+
+    display: flex;
+
+    justify-content: center;
+
+    background: var(--navy);
+
+    border-top: 4px solid var(--yellow);
+
+}
+
+@media (max-width: 600px) {
+
+    .pdf-page-back {
+
+        padding: 10px 14px 14px;
+
+    }
+
+    .pdf-page-back .pdf-back-button {
+
+        width: 100%;
+
+        min-height: 50px;
+
+    }
+
+}
