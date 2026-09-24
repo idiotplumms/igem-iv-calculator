@@ -1,4 +1,4 @@
-const CACHE_NAME = "igem-iv-calculator-v4";
+const CACHE_NAME = "igem-iv-calculator-v6";
 
 const OFFLINE_ASSETS = [
 "/home",
@@ -13,7 +13,7 @@ const OFFLINE_ASSETS = [
 
 self.addEventListener("install", event => {
 
-```
+
 event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
         return cache.addAll(OFFLINE_ASSETS);
@@ -21,13 +21,13 @@ event.waitUntil(
 );
 
 self.skipWaiting();
-```
+
 
 });
 
 self.addEventListener("activate", event => {
 
-```
+
 event.waitUntil(
     caches.keys().then(keys => {
 
@@ -41,13 +41,13 @@ event.waitUntil(
 );
 
 self.clients.claim();
-```
+
 
 });
 
 self.addEventListener("fetch", event => {
 
-```
+
 if (event.request.method !== "GET") {
     return;
 }
@@ -190,6 +190,6 @@ if (
     );
 
 }
-```
+
 
 });
