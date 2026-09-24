@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#121a23">
+
+    <title>IV Calculator - Login</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='main.css') }}">
+</head>
+
+<body class="login-page">
+
+    <main class="login-container">
+
+        <div class="login-card">
+
+            <h1>IV CALCULATOR</h1>
+
+            <p class="login-subtitle">
+                Engineer access
+            </p>
+
+            {% if error %}
+                <div class="login-error">
+                    {{ error }}
+                </div>
+            {% endif %}
+
+            <form method="POST">
+
+                <label for="username">
+                    Username
+                </label>
+
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <label class="remember-row">
+                    <input
+                        type="checkbox"
+                        name="remember"
+                    >
+
+                    <span>
+                        Keep me logged in
+                    </span>
+                </label>
+
+                <button type="submit" class="login-button">
+                    Log in
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
