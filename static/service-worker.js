@@ -1,251 +1,195 @@
-const CACHE_NAME = "igem-iv-calculator-v3";
+const CACHE_NAME = "igem-iv-calculator-v4";
 
 const OFFLINE_ASSETS = [
-
 "/home",
-
 "/calculator",
-
 "/static/main.css",
-
 "/static/calculator.css",
-
 "/static/manifest.json",
-
 "/static/icon-180.png",
-
 "/static/icon-192.png",
-
 "/static/icon-512.png"
-
 ];
 
-self.addEventListener(
-"install",
-event => {
+self.addEventListener("install", event => {
 
-    event.waitUntil(
+```
+event.waitUntil(
+    caches.open(CACHE_NAME).then(cache => {
+        return cache.addAll(OFFLINE_ASSETS);
+    })
+);
 
-        caches
-            .open(CACHE_NAME)
-            .then(cache => {
+self.skipWaiting();
+```
 
-                return cache.addAll(
-                    OFFLINE_ASSETS
+});
+
+self.addEventListener("activate", event => {
+
+```
+event.waitUntil(
+    caches.keys().then(keys => {
+
+        return Promise.all(
+            keys
+                .filter(key => key !== CACHE_NAME)
+                .map(key => caches.delete(key))
+        );
+
+    })
+);
+
+self.clients.claim();
+```
+
+});
+
+self.addEventListener("fetch", event => {
+
+```
+if (event.request.method !== "GET") {
+    return;
+}
+
+
+const url = new URL(event.request.url);
+
+
+if (url.origin !== self.location.origin) {
+    return;
+}
+
+
+/*
+ * Never cache the login page.
+ */
+
+if (url.pathname === "/login") {
+    return;
+}
+
+
+/*
+ * PDF:
+ *
+ * Try the internet first.
+ * If successful, save a copy.
+ * If there is no internet, use the saved copy.
+ */
+
+if (url.pathname === "/briefing.pdf") {
+
+    event.respondWith(
+
+        fetch(event.request)
+            .then(response => {
+
+                if (response.ok) {
+
+                    const copy = response.clone();
+
+                    caches.open(CACHE_NAME).then(cache => {
+                        cache.put(
+                            "/briefing.pdf",
+                            copy
+                        );
+                    });
+
+                }
+
+                return response;
+
+            })
+            .catch(() => {
+
+                return caches.match(
+                    "/briefing.pdf"
                 );
 
             })
 
     );
 
-    self.skipWaiting();
-
+    return;
 }
 
-);
 
-self.addEventListener(
-"activate",
-event => {
+/*
+ * Static files:
+ *
+ * Cache first.
+ */
 
-    event.waitUntil(
+if (url.pathname.startsWith("/static/")) {
 
-        caches
-            .keys()
-            .then(keys => {
+    event.respondWith(
 
-                return Promise.all(
+        caches.match(event.request)
+            .then(cached => {
 
-                    keys
-                        .filter(
-                            key =>
-                                key !== CACHE_NAME
-                        )
-                        .map(
-                            key =>
-                                caches.delete(key)
-                        )
+                if (cached) {
+                    return cached;
+                }
 
-                );
+                return fetch(event.request);
 
             })
 
     );
 
-    self.clients.claim();
-
+    return;
 }
 
-);
 
-self.addEventListener(
-"fetch",
-event => {
+/*
+ * Application pages:
+ *
+ * Try the internet first.
+ * Use cached page if offline.
+ */
 
-    if (
-        event.request.method !== "GET"
-    ) {
+if (
+    url.pathname === "/" ||
+    url.pathname === "/home" ||
+    url.pathname === "/calculator" ||
+    url.pathname === "/Calculator"
+) {
 
-        return;
+    event.respondWith(
 
-    }
+        fetch(event.request)
+            .then(response => {
 
+                if (response.ok) {
 
-    const url =
-        new URL(event.request.url);
+                    const copy = response.clone();
 
+                    caches.open(CACHE_NAME).then(cache => {
 
-    /*
-     * Only handle requests to this app.
-     */
-
-    if (
-        url.origin !==
-        self.location.origin
-    ) {
-
-        return;
-
-    }
-
-
-    /*
-     * Never intercept the login page.
-     */
-
-    if (
-        url.pathname === "/login"
-    ) {
-
-        return;
-
-    }
-
-
-    /*
-     * Static files:
-     *
-     * Cache first, then network.
-     */
-
-    if (
-        url.pathname.startsWith(
-            "/static/"
-        )
-    ) {
-
-        event.respondWith(
-
-            caches
-                .match(event.request)
-                .then(cached => {
-
-                    if (cached) {
-
-                        return cached;
-
-                    }
-
-                    return fetch(
-                        event.request
-                    )
-                    .then(response => {
-
-                        if (
-                            response.ok
-                        ) {
-
-                            const copy =
-                                response.clone();
-
-                            caches
-                                .open(
-                                    CACHE_NAME
-                                )
-                                .then(
-                                    cache => {
-                                        cache.put(
-                                            event.request,
-                                            copy
-                                        );
-                                    }
-                                );
-
-                        }
-
-                        return response;
+                        cache.put(
+                            event.request,
+                            copy
+                        );
 
                     });
 
-                })
+                }
 
-        );
+                return response;
 
-        return;
+            })
+            .catch(() => {
 
-    }
+                return caches.match(
+                    event.request
+                );
 
+            })
 
-    /*
-     * App pages:
-     *
-     * Network first when online.
-     * Cached version when offline.
-     */
-
-    if (
-        url.pathname === "/" ||
-        url.pathname === "/home" ||
-        url.pathname === "/calculator" ||
-        url.pathname === "/Calculator"
-    ) {
-
-        event.respondWith(
-
-            fetch(event.request)
-
-                .then(response => {
-
-                    if (
-                        response.ok
-                    ) {
-
-                        const copy =
-                            response.clone();
-
-                        caches
-                            .open(
-                                CACHE_NAME
-                            )
-                            .then(
-                                cache => {
-
-                                    cache.put(
-                                        event.request,
-                                        copy
-                                    );
-
-                                }
-                            );
-
-                    }
-
-                    return response;
-
-                })
-
-                .catch(() => {
-
-                    return caches.match(
-                        event.request
-                    );
-
-                })
-
-        );
-
-    }
+    );
 
 }
+```
 
-);
+});
