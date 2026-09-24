@@ -2,15 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#121a23">
 
     <title>IV Calculator - Login</title>
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='main.css') }}">
+
+    <link rel="manifest"
+          href="{{ url_for('static', filename='manifest.json') }}">
+
+    <meta name="theme-color"
+          content="#121a23">
+
+    <meta name="apple-mobile-web-app-capable"
+          content="yes">
+
+    <meta name="apple-mobile-web-app-status-bar-style"
+          content="black-translucent">
+
+    <meta name="apple-mobile-web-app-title"
+          content="IV Calculator">
+
+    <link rel="apple-touch-icon"
+          href="{{ url_for('static', filename='icon-180.png') }}">
 </head>
 
 <body class="login-page">
