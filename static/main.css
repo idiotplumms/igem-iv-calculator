@@ -839,9 +839,9 @@ body {
 
 .slides-top-nav .nav-button,
 .slides-top-nav .logout-button {
-    width: auto;
+    width: auto !important;
     min-height: 50px;
-    flex: 1;
+    flex: 1 1 0;
     max-width: 220px;
 }
 
@@ -850,16 +850,20 @@ body {
     .slides-top-nav {
         flex-direction: row !important;
         align-items: center !important;
+        justify-content: stretch;
+        gap: 10px;
         padding: 12px 10px;
     }
 
     .slides-top-nav .nav-button,
     .slides-top-nav .logout-button {
-        width: auto;
-        min-height: 50px;
-        flex: 1;
-        padding: 11px 8px;
+        width: 50% !important;
+        min-width: 0;
+        max-width: none;
+        flex: 1 1 0;
+        padding: 11px 6px;
         font-size: 15px;
     }
 
 }
+
