@@ -780,22 +780,15 @@ body {
 }
 
 /* =========================
-   TOP SAFE-AREA STRIPE
+   TOP WHITE SAFE-AREA STRIPE
    ========================= */
 
 body::before {
     content: "";
     display: block;
-    height: env(safe-area-inset-top);
-    min-height: 20px;
+    height: calc(30px + env(safe-area-inset-top));
     background: white;
+    flex-shrink: 0;
 }
 
-@media (max-width: 600px) {
-
-    body::before {
-        min-height: 24px;
-    }
-
-}
 
