@@ -1,0 +1,433 @@
+:root {
+    --navy: #121a23;
+    --yellow: #ffd400;
+    --blue: #0d5ea6;
+    --bg: #edf1f5;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+    color: #17212b;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: var(--navy);
+
+    padding: 10px 14px;
+
+    display: flex;
+    justify-content: flex-end;
+
+    border-bottom: 4px solid var(--yellow);
+}
+
+.nav-button {
+    display: inline-block;
+
+    background: var(--yellow);
+    color: var(--navy);
+
+    text-decoration: none;
+
+    font-weight: 900;
+    font-size: 16px;
+
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 2px 5px #0003;
+}
+
+
+/* =========================
+   HOME PAGE TOP BAR
+   ========================= */
+
+.top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 16px;
+
+    background: white;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.calculator-button {
+    display: inline-block;
+
+    padding: 11px 16px;
+
+    background: #007aff;
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    border-radius: 10px;
+
+    white-space: nowrap;
+}
+
+.calculator-button:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================
+   HOME PAGE
+   ========================= */
+
+.page {
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding: 18px 12px 40px;
+}
+
+.intro {
+    background: white;
+
+    border-radius: 14px;
+
+    padding: 18px;
+
+    margin-bottom: 16px;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.intro h1 {
+    margin-top: 0;
+
+    font-size: 24px;
+}
+
+.intro p {
+    line-height: 1.5;
+
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   PDF
+   ========================= */
+
+.pdf-card {
+    background: white;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.pdf-header {
+    padding: 14px 16px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 12px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.pdf-header h2 {
+    margin: 0;
+
+    font-size: 18px;
+}
+
+.open-pdf {
+    padding: 9px 12px;
+
+    background: #333;
+    color: white;
+
+    text-decoration: none;
+
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    white-space: nowrap;
+}
+
+.pdf-viewer {
+    width: 100%;
+
+    height: 75vh;
+
+    min-height: 500px;
+
+    border: none;
+
+    display: block;
+
+    background: #ddd;
+}
+
+.pdf-note {
+    padding: 12px 16px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+
+    color: #555;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .top-bar {
+        padding: 10px 12px;
+    }
+
+    .title {
+        font-size: 16px;
+    }
+
+    .calculator-button {
+        padding: 10px 12px;
+
+        font-size: 14px;
+    }
+
+    .page {
+        padding: 12px 8px 30px;
+    }
+
+    .intro {
+        padding: 15px;
+    }
+
+    .intro h1 {
+        font-size: 21px;
+    }
+
+    .pdf-header {
+        padding: 12px;
+    }
+
+    .pdf-header h2 {
+        font-size: 16px;
+    }
+
+    .open-pdf {
+        padding: 8px 10px;
+
+        font-size: 13px;
+    }
+
+    .pdf-viewer {
+        height: 70vh;
+    }
+
+    .nav-button {
+        width: 100%;
+
+        text-align: center;
+    }
+}
+
+
+@media (orientation: landscape) and (max-width: 900px) {
+
+    .pdf-viewer {
+        height: 82vh;
+    }
+}
+
+/* =========================
+   LOGIN PAGE
+   ========================= */
+
+.login-page {
+    min-height: 100vh;
+    margin: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #edf1f5;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    padding: 30px 24px;
+
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+    box-sizing: border-box;
+}
+
+.login-card h1 {
+    margin: 0;
+    text-align: center;
+
+    font-size: 26px;
+    letter-spacing: 1px;
+}
+
+.login-subtitle {
+    text-align: center;
+    margin: 8px 0 28px;
+
+    color: #66717c;
+}
+
+.login-card label {
+    display: block;
+
+    margin: 0 0 7px;
+
+    font-weight: 600;
+}
+
+.login-card input[type="text"],
+.login-card input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 12px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid #cbd2d9;
+    border-radius: 8px;
+
+    font-size: 16px;
+}
+
+.login-card input:focus {
+    outline: none;
+    border-color: #2c6bed;
+
+    box-shadow: 0 0 0 2px rgba(44, 107, 237, 0.15);
+}
+
+.remember-row {
+    display: flex !important;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 20px !important;
+
+    font-weight: normal !important;
+}
+
+.remember-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.login-button {
+    width: 100%;
+
+    padding: 14px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #121a23;
+    color: white;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.login-button:active {
+    transform: translateY(1px);
+}
+
+.login-error {
+    margin-bottom: 20px;
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: #fde8e8;
+    color: #9b1c1c;
+
+    text-align: center;
+}
+
+
+.logout-button {
+    display: inline-block;
+
+    padding: 8px 12px;
+
+    border-radius: 7px;
+
+    background: #c0392b;
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.logout-button:hover {
+    opacity: 0.9;
+}
