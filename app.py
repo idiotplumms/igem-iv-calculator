@@ -91,7 +91,7 @@ def logout():
 @app.route("/home")
 @login_required
 def home():
-    return render_template("Slides.html")
+    return render_template("slides.html")
 
 
 @app.route("/Calculator")
