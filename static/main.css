@@ -787,7 +787,22 @@ body {
     flex-shrink: 0;
 }
 
+/* =========================
+   SHOW PASSWORD BUTTON
+   ========================= */
 
+.show-password-button {
+    display: block;
+    margin: -10px 0 20px auto;
+    padding: 5px 0;
+    background: none;
+    border: none;
+    color: #2c6bed;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
 
-
-
+.show-password-button:active {
+    transform: translateY(1px);
+}
