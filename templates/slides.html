@@ -1,156 +1,168 @@
 <!DOCTYPE html>
+
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width,
-                   initial-scale=1.0,
-                   viewport-fit=cover">
+<meta charset="UTF-8">
 
-    <title>IGEM IV Calculator</title>
+<meta name="viewport"
+      content="width=device-width,
+               initial-scale=1.0,
+               viewport-fit=cover">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='main.css') }}">
 
-    <!-- PWA -->
-    <link rel="manifest"
-          href="{{ url_for('static', filename='manifest.json') }}">
+<title>IGEM IV Calculator</title>
 
-    <meta name="theme-color" content="#121a23">
 
-    <!-- iPhone -->
-    <meta name="apple-mobile-web-app-capable"
-          content="yes">
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='main.css') }}">
 
-    <meta name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent">
 
-    <meta name="apple-mobile-web-app-title"
-          content="IV Calculator">
+<link rel="manifest"
+      href="{{ url_for('static', filename='manifest.json') }}">
 
-    <link rel="apple-touch-icon"
-          href="{{ url_for('static', filename='icon-180.png') }}">
+
+<meta name="theme-color"
+      content="#121a23">
+
+
+<meta name="apple-mobile-web-app-capable"
+      content="yes">
+
+
+<meta name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent">
+
+
+<meta name="apple-mobile-web-app-title"
+      content="IV Calculator">
+
+
+<link rel="apple-touch-icon"
+      href="{{ url_for('static', filename='icon-180.png') }}">
+
 </head>
-
 
 <body>
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
 
-    <main class="page">
-
-        <section class="intro">
-
-            <h1>Engineer Briefing</h1>
-
-            <p>
-                Use the document below as a reference.
-                You can use the Open PDF button to view the
-                document using the phone's normal PDF viewer.
-                The calculator button is at the bottom.
-            </p>
-
-        </section>
+<main class="page">
 
 
-        <!-- =========================
-             PDF CARD
-             ========================= -->
+    <section class="intro">
 
-        <section class="pdf-card">
-
-            <div class="pdf-header">
-
-                <h2>IGEM Engineer Briefing</h2>
-
-                <!-- Protected PDF route -->
-                <a
-                    href="{{ url_for('briefing_pdf') }}"
-                    target="_blank"
-                    class="open-pdf">
-
-                    Open PDF
-
-                </a>
-
-            </div>
+        <h1>
+            Engineer Briefing
+        </h1>
 
 
-            <!-- Protected PDF viewer -->
-            <iframe
-                class="pdf-viewer"
-                src="{{ url_for('briefing_pdf') }}"
-                title="IGEM Engineer Briefing PDF">
-            </iframe>
+        <p>
+
+            Use the document below as a
+            reference.
+
+            You can use the Open PDF button
+            to view the document using the
+            phone's normal PDF viewer.
+
+        </p>
+
+    </section>
 
 
-            <div class="pdf-note">
-
-                For easier reading on a phone, tap
-                <strong>Open PDF</strong> above.
-
-                You can then use Safari's normal PDF controls
-                to zoom and move through the document.
-
-            </div>
-
-        </section>
-
-    </main>
+    <section class="pdf-card">
 
 
-    <!-- =========================
-         BOTTOM NAVIGATION
-         ========================= -->
+        <div class="pdf-header">
 
-    <div class="navbar">
-
-        <a
-            class="nav-button"
-            href="{{ url_for('calculator') }}">
-
-            Go to Calculator
-
-        </a>
-
-        <a
-            href="{{ url_for('logout') }}"
-            class="logout-button">
-
-            Log out
-
-        </a>
-
-    </div>
+            <h2>
+                IGEM Engineer Briefing
+            </h2>
 
 
-    <!-- =========================
-         SERVICE WORKER
-         ========================= -->
+            <a
+                href="{{ url_for('briefing_pdf') }}"
+                target="_blank"
+                class="open-pdf">
 
-    <script>
+                Open PDF
 
-        if ("serviceWorker" in navigator) {
+            </a>
 
-            window.addEventListener("load", function () {
+        </div>
+
+
+        <iframe
+            class="pdf-viewer"
+            src="{{ url_for('briefing_pdf') }}"
+            title="IGEM Engineer Briefing PDF">
+        </iframe>
+
+
+        <div class="pdf-note">
+
+            For easier reading on a phone,
+            tap <strong>Open PDF</strong>
+            above.
+
+            You can then use Safari's normal
+            PDF controls to zoom and move
+            through the document.
+
+        </div>
+
+
+    </section>
+
+
+</main>
+
+
+<div class="navbar">
+
+
+    <a
+        class="nav-button"
+        href="{{ url_for('calculator') }}">
+
+        Go to Calculator
+
+    </a>
+
+
+    <a
+        href="{{ url_for('logout') }}"
+        class="logout-button">
+
+        Log out
+
+    </a>
+
+
+</div>
+
+
+<script>
+
+    if ("serviceWorker" in navigator) {
+
+        window.addEventListener(
+            "load",
+            function () {
 
                 navigator.serviceWorker.register(
-                    "{{ url_for('static', filename='service-worker.js') }}"
+                    "{{ url_for('service_worker') }}"
                 );
 
-            });
+            }
+        );
 
-        }
+    }
 
-    </script>
+</script>
 
 
 </body>
 
 </html>
-
