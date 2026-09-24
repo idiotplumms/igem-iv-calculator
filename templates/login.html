@@ -1,54 +1,80 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width,
+                 initial-scale=1.0,
+                 viewport-fit=cover">
 
-    <title>IV Calculator - Login</title>
+    <title>Login</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='main.css') }}">
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='main.css') }}">
 
-    <link rel="manifest"
-          href="{{ url_for('static', filename='manifest.json') }}">
+    <link
+        rel="manifest"
+        href="{{ url_for('static', filename='manifest.json') }}">
 
-    <meta name="theme-color"
-          content="#121a23">
+    <meta
+        name="theme-color"
+        content="#121a23">
 
-    <meta name="apple-mobile-web-app-capable"
-          content="yes">
+    <meta
+        name="apple-mobile-web-app-capable"
+        content="yes">
 
-    <meta name="apple-mobile-web-app-status-bar-style"
-          content="black-translucent">
+    <meta
+        name="apple-mobile-web-app-status-bar-style"
+        content="black-translucent">
 
-    <meta name="apple-mobile-web-app-title"
-          content="IV Calculator">
+    <meta
+        name="apple-mobile-web-app-title"
+        content="IV Calculator">
 
-    <link rel="apple-touch-icon"
-          href="{{ url_for('static', filename='icon-180.png') }}">
+    <link
+        rel="apple-touch-icon"
+        href="{{ url_for('static', filename='icon-180.png') }}">
+
 </head>
+
 
 <body class="login-page">
 
+
     <main class="login-container">
 
-        <div class="login-card">
 
-            <h1>IV CALCULATOR</h1>
+        <section class="login-card">
+
+
+            <h1>
+                IV Calculator
+            </h1>
+
 
             <p class="login-subtitle">
-                Engineer access
+                Engineer Login
             </p>
 
+
             {% if error %}
+
                 <div class="login-error">
                     {{ error }}
                 </div>
+
             {% endif %}
 
+
             <form method="POST">
+
 
                 <label for="username">
                     Username
@@ -59,8 +85,8 @@
                     id="username"
                     name="username"
                     autocomplete="username"
-                    required
-                >
+                    required>
+
 
                 <label for="password">
                     Password
@@ -71,29 +97,95 @@
                     id="password"
                     name="password"
                     autocomplete="current-password"
-                    required
-                >
+                    required>
+
+
+                <button
+                    type="button"
+                    class="show-password-button"
+                    onclick="togglePassword()">
+
+                    Show password
+
+                </button>
+
 
                 <label class="remember-row">
+
                     <input
                         type="checkbox"
-                        name="remember"
-                    >
+                        name="remember">
 
                     <span>
                         Keep me logged in
                     </span>
+
                 </label>
 
-                <button type="submit" class="login-button">
-                    Log in
+
+                <button
+                    type="submit"
+                    class="login-button">
+
+                    Login
+
                 </button>
+
 
             </form>
 
-        </div>
+
+        </section>
+
 
     </main>
 
+
+    <script>
+
+        function togglePassword() {
+
+            const passwordInput =
+                document.getElementById("password");
+
+            const showButton =
+                document.querySelector(".show-password-button");
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+                showButton.textContent = "Hide password";
+
+            } else {
+
+                passwordInput.type = "password";
+
+                showButton.textContent = "Show password";
+
+            }
+
+        }
+
+
+        if ("serviceWorker" in navigator) {
+
+            window.addEventListener(
+                "load",
+                function () {
+
+                    navigator.serviceWorker.register(
+                        "{{ url_for('service_worker') }}"
+                    );
+
+                }
+            );
+
+        }
+
+    </script>
+
+
 </body>
+
 </html>
