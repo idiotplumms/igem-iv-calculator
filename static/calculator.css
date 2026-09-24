@@ -4,7 +4,6 @@
 
 header {
     background: var(--navy);
-
     color: white;
 
     padding: 18px 16px;
@@ -14,7 +13,6 @@ header {
 
 header h1 {
     margin: 0;
-
     font-size: 27px;
 }
 
@@ -166,7 +164,6 @@ input {
     position: absolute;
 
     right: 15px;
-
     top: 15px;
 
     font-weight: bold;
@@ -345,6 +342,104 @@ button {
 
 
 /* =========================
+   BOTTOM NAVIGATION
+   ========================= */
+
+.navbar {
+    position: relative;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 16px 14px;
+
+    background: var(--navy);
+
+    border-top: 4px solid var(--yellow);
+}
+
+.nav-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    background: var(--yellow);
+
+    color: var(--navy);
+
+    border: 1px solid var(--yellow);
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    box-sizing: border-box;
+}
+
+.nav-button:hover {
+    background: #e0b83f;
+
+    border-color: #e0b83f;
+}
+
+.logout-button {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 10px 16px;
+
+    background: #b42318;
+
+    color: #ffffff;
+
+    border: 1px solid #b42318;
+
+    border-radius: 8px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+.logout-button:hover {
+    background: #8f1d14;
+
+    border-color: #8f1d14;
+}
+
+.nav-button:active,
+.logout-button:active {
+    transform: translateY(1px);
+}
+
+
+/* =========================
    DESKTOP
    ========================= */
 
@@ -398,86 +493,38 @@ button {
     .result .big {
         font-size: 32px;
     }
+
+    .navbar {
+        flex-direction: column;
+
+        align-items: stretch;
+
+        gap: 10px;
+
+        padding: 16px 14px;
+    }
+
+    .nav-button,
+    .logout-button {
+        width: 100%;
+
+        min-height: 50px;
+
+        text-align: center;
+
+        font-size: 16px;
+    }
 }
 
-/* Logout button */
-.navbar {
-    position: relative;
-    top: auto;
-    z-index: 1000;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* =========================
+   LANDSCAPE PHONE
+   ========================= */
 
-    gap: 12px;
+@media (orientation: landscape) and (max-width: 900px) {
 
-    padding: 50px 16px 12px;
-
-    background: var(--navy);
-}
-
-
-
-
-
-/* Go to Slides - keep your existing yellow theme */
-.nav-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 11px 20px;
-
-    background: #f2c94c;
-    color: #121a23;
-
-    border: 1px solid #f2c94c;
-    border-radius: 8px;
-
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 600;
-
-    box-sizing: border-box;
-}
-
-.nav-button:hover {
-    background: #e0b83f;
-    border-color: #e0b83f;
-}
-
-/* Log out - red */
-.logout-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 10px 16px;
-
-    background: #b42318;
-    color: #ffffff;
-
-    border: 1px solid #b42318;
-    border-radius: 8px;
-
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 600;
-
-    box-sizing: border-box;
-
-    transition: background 0.2s ease,
-                transform 0.1s ease;
-}
-
-.logout-button:hover {
-    background: #8f1d14;
-    border-color: #8f1d14;
-}
-
-.nav-button:active,
-.logout-button:active {
-    transform: translateY(1px);
+    .navbar {
+        padding: 14px;
+    }
 }
 
