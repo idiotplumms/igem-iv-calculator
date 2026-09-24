@@ -788,7 +788,10 @@ body::before {
     display: block;
     height: calc(30px + env(safe-area-inset-top));
     background: #121a23;
+    border-bottom: 4px solid var(--yellow);
     flex-shrink: 0;
 }
+
+
 
 
