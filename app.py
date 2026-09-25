@@ -142,7 +142,7 @@ def briefing_pdf():
 
     return send_from_directory(
         "files",
-        "IGEM_UP1B_Edition4_Engineer_Briefing_FINAL.pdf",
+        "IGEM_UP1B_Engineer_Briefing_CORRECTED.pdf",
         mimetype="application/pdf",
         as_attachment=False
     )
